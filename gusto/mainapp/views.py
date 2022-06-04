@@ -1,7 +1,10 @@
 from django.http import HttpResponse, JsonResponse
 from django.shortcuts import render
 
-from rest_framework import generics
+from rest_framework import generics, permissions
+from rest_framework.decorators import api_view, renderer_classes, permission_classes
+from rest_framework.permissions import IsAuthenticated
+from rest_framework.renderers import TemplateHTMLRenderer, JSONRenderer
 from rest_framework.response import Response
 from rest_framework.views import APIView
 
@@ -23,8 +26,15 @@ class Details(generics.ListCreateAPIView):
 	def get_queryset(self):
 		return Dish.objects.filter(id=self.request.GET['id'])
 
+# @api_view(['POST'])
+# def MakeTheOrder(request):
+# 	print(request.POST)
+#
+# 	return Response({'status': '1'})
 
+@api_view(['POST'])
 def MakeTheOrder(request):
-		print(request.GET)
-
-		return Response("{'status': '1'}")
+    profile = Dish.objects.all()
+    if request.method == "POST":
+        print(request.data)
+    return Response({'status': '1'})
