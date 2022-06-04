@@ -31,7 +31,7 @@ class Details(generics.ListCreateAPIView):
 # 	print(request.POST)
 #
 # 	return Response({'status': '1'})
-
+#
 @api_view(['POST'])
 def MakeTheOrder(request):
     profile = Dish.objects.all()
