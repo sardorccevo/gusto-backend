@@ -7,5 +7,16 @@ class Dish(models.Model):
     description = models.TextField(verbose_name='описание')
     calories = models.PositiveIntegerField(verbose_name='калории')
 
+    TYPE_OF_DISH_CHOICES = [
+        ('FS', 'Первое'),
+        ('SC', 'Второе'),
+        ('DR', 'Питье'),
+    ]
+    type = models.CharField(
+        max_length=2,
+        choices=TYPE_OF_DISH_CHOICES,
+        default=TYPE_OF_DISH_CHOICES[0],
+        verbose_name='тип еды'
+    )
     def __str__(self):
         return self.name
