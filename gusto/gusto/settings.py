@@ -25,9 +25,6 @@ SECRET_KEY = 'django-insecure-08&4hs5g#@=b##vd#r(1h7l7zmxo#a1!oml^2-w#j_t+qx#f2f
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
-
-
 # Application definition
 
 INSTALLED_APPS = [
@@ -163,3 +160,5 @@ SIMPLE_JWT = {
     'SLIDING_TOKEN_LIFETIME': timedelta(days=5),
     'SLIDING_TOKEN_REFRESH_LIFETIME': timedelta(days=5),
 }
+
+ALLOWED_HOSTS = ['*']
