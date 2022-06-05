@@ -37,6 +37,7 @@ def MakeTheOrder(request):
     profile = Dish.objects.all()
     if request.method == "POST":
         print(request.data)
+		# send_tel_message()
     return Response({'status': '1'})
 
 # def send_tel_message(self):
