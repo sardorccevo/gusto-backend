@@ -5,7 +5,7 @@ class Dish(models.Model):
     image = models.CharField(max_length=255, verbose_name='фото')
     price = models.DecimalField(max_digits=11, decimal_places=2, verbose_name='цена')
     description = models.TextField(verbose_name='описание')
-    calories = models.PositiveIntegerField(verbose_name='калории')
+    calories = models.DecimalField(max_digits=8, decimal_places=2, verbose_name='калории')
 
     TYPE_OF_DISH_CHOICES = [
         ('FS', 'Первое'),
