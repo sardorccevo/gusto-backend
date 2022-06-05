@@ -7,7 +7,7 @@ from rest_framework.permissions import IsAuthenticated
 from rest_framework.renderers import TemplateHTMLRenderer, JSONRenderer
 from rest_framework.response import Response
 from rest_framework.views import APIView
-
+import requests
 from .serializers import *
 
 def index(request):
@@ -15,16 +15,16 @@ def index(request):
 
 class MenuListAPIView(generics.ListCreateAPIView):
 
-	serializer_class =  MenuListSerializer
-	# permission_classes = (IsAuthenticated,)
-	def get_queryset(self):
-		return Dish.objects.filter(type=self.request.GET['type'])
+    serializer_class =  MenuListSerializer
+    # permission_classes = (IsAuthenticated,)
+    def get_queryset(self):
+        return Dish.objects.filter(type=self.request.GET['type'])
 
 class Details(generics.ListCreateAPIView):
-	serializer_class = DetailsSerializer
+    serializer_class = DetailsSerializer
 
-	def get_queryset(self):
-		return Dish.objects.filter(id=self.request.GET['id'])
+    def get_queryset(self):
+        return Dish.objects.filter(id=self.request.GET['id'])
 
 # @api_view(['POST'])
 # def MakeTheOrder(request):
@@ -37,7 +37,8 @@ def MakeTheOrder(request):
     profile = Dish.objects.all()
     if request.method == "POST":
         print(request.data)
-		# send_tel_message()
+        message = str(request.data)
+        a = requests.get(f"https://api.telegram.org/bot5320552279:AAETHAUmB6WakhZC-dq1Lvr7NNLEouZhmCg/sendMessage?chat_id=@promo_online_menu&text={message}")
     return Response({'status': '1'})
 
 # def send_tel_message(self):

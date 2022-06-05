@@ -75,9 +75,13 @@ WSGI_APPLICATION = 'gusto.wsgi.application'
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'd8kt80i0hi3ddi',
+        'USER': 'ecvyvvobrzdpvz',
+        'PASSWORD': '0ce83ac31c97d8198cd79604d1666b347709e4cae22914eb66def702d153cd2d',
+        'HOST': 'ec2-54-80-123-146.compute-1.amazonaws.com',
+        'PORT': '5432',
     }
 }
 
@@ -196,3 +200,5 @@ CORS_ALLOW_HEADERS = [
     "x-csrftoken",
     "x-requested-with",
 ]
+
+
