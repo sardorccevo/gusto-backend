@@ -43,8 +43,8 @@ def MakeTheOrder(request):
 # 	import requests
 # 	import  os
 #
-# 	bot_api_key = '5459082237:AAHfdhYJMnMZcCL-U6bddbrY9mnPU8rOTY8'
-# 	channel_name = '@'
+# 	bot_api_key = '5320552279:AAETHAUmB6WakhZC-dq1Lvr7NNLEouZhmCg'
+# 	channel_name = '@online_menu_demobot'
 # 	message = 'hello world'
 #
 # 	url = f'https://api.telegtam.org/bot{bot_api_key}/sendMessage'
