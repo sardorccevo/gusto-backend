@@ -1,3 +1,4 @@
+import emoji
 from django.http import HttpResponse, JsonResponse
 from django.shortcuts import render
 
@@ -37,6 +38,7 @@ def MakeTheOrder(request):
     profile = Dish.objects.all()
     if request.method == "POST":
         message = ''
+        message += emoji.emojize(":page_facing_up:")+' Столик номер: 1\n\n'
         common_price = 0
         for i in request.data["data"]:
             id = i['id']
@@ -46,9 +48,11 @@ def MakeTheOrder(request):
             price = dish[0]['price']
             count = i['count']
 
-            message += name+'\n'
-            message += str(price)+'x'+str(count)+'='+str(price*count)+'\n\n'
+            message += emoji.emojize(":fork_and_knife_with_plate:")+" "+name+'\n'
+            message += str(price)+' x '+str(count)+' шт = '+str(price*count)+' сум \n\n'
+            common_price += price*count
 
+        message += emoji.emojize(":credit_card:")+' Общая сумма: '+str(common_price)+' сум'
         a = requests.get(f"https://api.telegram.org/bot5320552279:AAETHAUmB6WakhZC-dq1Lvr7NNLEouZhmCg/sendMessage?chat_id=@promo_online_menu&text={message}")
     return Response({'status': '1'})
 
