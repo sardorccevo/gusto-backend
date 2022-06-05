@@ -36,8 +36,19 @@ class Details(generics.ListCreateAPIView):
 def MakeTheOrder(request):
     profile = Dish.objects.all()
     if request.method == "POST":
-        print(request.data)
-        message = str(request.data)
+        message = ''
+        common_price = 0
+        for i in request.data["data"]:
+            id = i['id']
+            dish = Dish.objects.filter(id=id).values('name', 'price')
+
+            name = dish[0]['name']
+            price = dish[0]['price']
+            count = i['count']
+
+            message += name+'\n'
+            message += str(price)+'x'+str(count)+'='+str(price*count)+'\n\n'
+
         a = requests.get(f"https://api.telegram.org/bot5320552279:AAETHAUmB6WakhZC-dq1Lvr7NNLEouZhmCg/sendMessage?chat_id=@promo_online_menu&text={message}")
     return Response({'status': '1'})
 
