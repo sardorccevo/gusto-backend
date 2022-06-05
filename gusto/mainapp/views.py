@@ -38,3 +38,19 @@ def MakeTheOrder(request):
     if request.method == "POST":
         print(request.data)
     return Response({'status': '1'})
+
+# def send_tel_message(self):
+# 	import requests
+# 	import  os
+#
+# 	bot_api_key = '5459082237:AAHfdhYJMnMZcCL-U6bddbrY9mnPU8rOTY8'
+# 	channel_name = '@'
+# 	message = 'hello world'
+#
+# 	url = f'https://api.telegtam.org/bot{bot_api_key}/sendMessage'
+#
+# 	params = {
+# 		'chat_id': channel_name,
+# 		'text': message
+# 	}
+# 	return requests.get(url, params=params).json()

@@ -5,8 +5,8 @@ from .models import *
 class MenuListSerializer(serializers.ModelSerializer):
 	class Meta:
 		model = Dish
-		# fields = "__all__"
-		fields = ['name', 'image']
+		fields = "__all__"
+		#fields = ['name', 'image']
 
 class DetailsSerializer(serializers.ModelSerializer):
 	class Meta:
